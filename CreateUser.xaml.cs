@@ -24,7 +24,7 @@ namespace Курсовая_3_курс
     public partial class CreateUser : Page
     {
 
-        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True;Encrypt=True";
 
         public CreateUser()
         {
@@ -36,6 +36,7 @@ namespace Курсовая_3_курс
             try
             {
                 string userLogin = login.Text.Trim();
+                string userFullName = fullName.Text.Trim();
                 string userPassword = password.Text.Trim();
                 string repeatPassword = repeat_password.Text.Trim();
 
@@ -53,7 +54,6 @@ namespace Курсовая_3_курс
                     );
 
                     DA.SelectCommand.Parameters.AddWithValue("@login", userLogin);
-                    DA.SelectCommand.Parameters.AddWithValue("@password", userPassword);
 
                     DataSet dataSet = new DataSet();
                     DA.Fill(dataSet);
@@ -70,12 +70,13 @@ namespace Курсовая_3_курс
                 using (var conn = new SqlConnection(ConnString))
                 {
                     conn.Open();
-                    string sql = "INSERT INTO Users (user_login, user_password) VALUES(@login, @password)";
+                    string sql = "INSERT INTO Users (user_login, user_password, full_name) VALUES(@login, @password, @fullname)";
 
                     using (var cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@login", userLogin);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@fullName", userFullName);
                         cmd.ExecuteNonQuery();
                     }
                     conn.Close();

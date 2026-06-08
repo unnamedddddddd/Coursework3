@@ -22,15 +22,16 @@ namespace Курсовая_3_курс
     /// </summary>
     public partial class Home : Page
     {
-        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True;Encrypt=True"; //public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+
 
         public Home()
         {
             InitializeComponent();
-            MessageBox.Show("Home constructor called!");
+            getUserFullName();
         }
 
-        public void getUserLogin()
+        public void getUserFullName()
         {
             try
             {
@@ -38,7 +39,7 @@ namespace Курсовая_3_курс
                 {
                     conn.Open();
                     SqlDataAdapter DA = new SqlDataAdapter(
-                        $@"SELECT user_login FROM Users WHERE iser_id = @id",
+                        $@"SELECT full_name FROM Users WHERE user_id = @id",
                         conn
                     );
 
@@ -49,7 +50,7 @@ namespace Курсовая_3_курс
 
                     if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
                     {
-                        userLoginText.Text = dataSet.Tables[0].Rows[0]["user_login"].ToString();
+                        userFullName.Text = dataSet.Tables[0].Rows[0]["full_name"].ToString();
                     }
                     conn.Close();
                 }

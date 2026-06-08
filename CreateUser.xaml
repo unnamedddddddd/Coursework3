@@ -53,20 +53,37 @@
                         />
                     </Border>
                 </StackPanel>
+                
                 <StackPanel Margin="0 0 0 15">
-                    <TextBlock Text="Пароль" Margin="0 0 0 3"/>
+                    <TextBlock Text="ФИО" Margin="0 0 0 3"/>
                     <Border  
-                 BorderBrush="Black" 
-                 BorderThickness="1" 
-                 Background="White" 
-                 Padding="1"
-                 CornerRadius="5"
-             >
+                        BorderBrush="Black" 
+                        BorderThickness="1" 
+                        Background="White" 
+                        Padding="1"
+                        CornerRadius="5"
+                    >
                         <TextBox
                             Padding="3" 
                             BorderThickness="0"
-                            Name="password"
+                            Name="fullName"
                         />
+                    </Border>
+                </StackPanel>
+                <StackPanel Margin="0 0 0 15">
+                    <TextBlock Text="Пароль" Margin="0 0 0 3"/>
+                    <Border  
+                        BorderBrush="Black" 
+                        BorderThickness="1" 
+                        Background="White" 
+                        Padding="1"
+                        CornerRadius="5"
+                    >
+                    <TextBox
+                       Padding="3" 
+                       BorderThickness="0"
+                       Name="password"
+                    />   
                     </Border>
                 </StackPanel>
                 <StackPanel Margin="0 0 0 15">

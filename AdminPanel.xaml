@@ -1,0 +1,71 @@
+﻿<Page x:Class="Курсовая_3_курс.AdminPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Курсовая_3_курс"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPanel">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <!-- Фиксированная ширина меню -->
+            <ColumnDefinition Width="*"/>
+            <!-- Остальное пространство -->
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#2C3E50">
+            <StackPanel Margin="0,20,0,0">
+                <TextBlock Text="Админ панель" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
+
+                <Button x:Name="UsersBtn" 
+                        Content="Пользователи" 
+                        Click="UsersBtn_Click"
+                        FontSize="16"
+                        Padding="10,12"
+                        Margin="10,5"/>
+
+                <Button x:Name="CreateUsersBtn" 
+                        Content="Создать пользователя" 
+                        Click="CreateUsersBtn_Click"
+                        FontSize="16"
+                        Padding="10,12"
+                        Margin="10,5"/>
+
+                <Button x:Name="UpdateRoleUserBtn" 
+                        Content="Изменить роль" 
+                        Click="UpdateRoleUserBtn_Click"
+                        FontSize="16"
+                        Padding="10,12"
+                        Margin="10,5"/>
+
+                <Button x:Name="RecordsBtn" 
+                        Content="Записи" 
+                        Click="RecordsBtn_Click"
+                        FontSize="16"
+                        Padding="10,12"
+                        Margin="10,5"/>
+
+                <Separator Margin="10,20,10,10" Background="Gray"/>
+
+                <Button x:Name="LogoutBtn" 
+                        Content="Выход" 
+                        Click="LogoutBtn_Click"
+                        FontSize="16"
+                        Padding="10,12"
+                        Margin="10,5"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Background="#F4F6F9" Padding="20">
+            <ContentControl x:Name="ContentArea"/>
+        </Border>
+    </Grid>
+</Page>

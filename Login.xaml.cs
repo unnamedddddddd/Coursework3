@@ -8,7 +8,7 @@ namespace Курсовая_3_курс
 {
     public partial class Login : Page
     {
-        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True;Encrypt=True";
 
         public Login()
         {
@@ -31,7 +31,7 @@ namespace Курсовая_3_курс
                 try
                 {
                     connect.Open();
-                    string sql = "SELECT user_id, user_login, user_password FROM Users WHERE user_login = @login";
+                    string sql = "SELECT user_id, user_login, user_password, role_id FROM Users WHERE user_login = @login";
 
                     using (SqlCommand cmd = new SqlCommand(sql, connect))
                     {
@@ -45,10 +45,21 @@ namespace Курсовая_3_курс
 
                                 if (BCrypt.Net.BCrypt.Verify(userPassword, storedHash))
                                 {
-                                    App.CurrentUserId = Convert.ToInt32(reader["user_id"]);
-ё
-                                    var mainWindow = (MainWindow)Application.Current.MainWindow;
-                                    mainWindow.MainFrame.Navigate(new Home());
+                                    int userId = Convert.ToInt32(reader["user_id"]);
+                                    string userRole = reader["role_id"].ToString();
+
+                                    App.CurrentUserId = userId;
+
+                                    if (userRole == "7")  
+                                    {
+                                        var mainWindow = (MainWindow)Application.Current.MainWindow;
+                                        mainWindow.MainFrame.Navigate(new AdminPanel());
+                                    }
+                                    else 
+                                    {
+                                        var mainWindow = (MainWindow)Application.Current.MainWindow;
+                                        mainWindow.MainFrame.Navigate(new Home());
+                                    }
                                 }
                                 else
                                 {
