@@ -27,11 +27,12 @@ namespace Курсовая_3_курс
 
         private void CreateUsersBtn_Click(object sender, RoutedEventArgs e)
         {
+            ContentArea.Content = new CreateUserAdminPanel();
         }
 
         private void UpdateRoleUserBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentArea.Content = new UpdateRole();
         }
 
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
@@ -46,12 +47,22 @@ namespace Курсовая_3_курс
 
         private void RecordsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentArea.Content = new ShowAttendanceRecords();
         }
 
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show(
+               "Вы уверены, что хотите выйти?",
+               "Подтверждение",
+               MessageBoxButton.YesNo,
+               MessageBoxImage.Question
+           );
 
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

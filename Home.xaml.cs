@@ -24,7 +24,6 @@ namespace Курсовая_3_курс
     {
         public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True;Encrypt=True"; //public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
 
-
         public Home()
         {
             InitializeComponent();
@@ -58,6 +57,26 @@ namespace Курсовая_3_курс
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
 
+            }
+        }
+
+        private void RecordsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new ShowAttendanceRecords();
+        }
+
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                "Вы уверены, что хотите выйти?",
+                "Подтверждение",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
             }
         }
     }

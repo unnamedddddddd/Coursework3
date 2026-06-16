@@ -29,6 +29,7 @@ namespace Курсовая_3_курс
         public CreateUser()
         {
             InitializeComponent();
+            LoadGroups();
         }
 
         private void Create_user_button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,7 @@ namespace Курсовая_3_курс
                 string userFullName = fullName.Text.Trim();
                 string userPassword = password.Text.Trim();
                 string repeatPassword = repeat_password.Text.Trim();
+                int groupId = Convert.ToInt32(GroupsComboBox.SelectedValue);
 
                 if (userPassword != repeatPassword)
                 {
@@ -70,13 +72,15 @@ namespace Курсовая_3_курс
                 using (var conn = new SqlConnection(ConnString))
                 {
                     conn.Open();
-                    string sql = "INSERT INTO Users (user_login, user_password, full_name) VALUES(@login, @password, @fullname)";
+                    string sql = "INSERT INTO Users (user_login, user_password, full_name, group_id) VALUES(@login, @password, @fullname, @groupId)";
 
                     using (var cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@login", userLogin);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
                         cmd.Parameters.AddWithValue("@fullName", userFullName);
+                        cmd.Parameters.AddWithValue("@groupId", groupId);
+
                         cmd.ExecuteNonQuery();
                     }
                     conn.Close();
@@ -90,27 +94,25 @@ namespace Курсовая_3_курс
                 MessageBox.Show(ex.Message);
             }
         }
+        private void LoadGroups()
+        {
+            string query = "SELECT group_id, group_name FROM Student_groups ORDER BY group_name";
 
-        //public void LoadComboBox(string sql, ComboBox data, string text, string id)
-        //{
-        //    try
-        //    {
-        //        using (var conn = new SqlConnection(ConnString))
-        //        {
-        //            conn.Open();
-        //            SqlDataAdapter DA = new SqlDataAdapter(sql, conn);
-        //            DataSet dataSet = new DataSet();
-        //            DA.Fill(dataSet);
+            using (SqlConnection conn = new SqlConnection(ConnString))
+            {
+                SqlDataAdapter DA = new SqlDataAdapter(query, conn);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
 
-        //            data.ItemsSource = dataSet.Tables[0].DefaultView; 
-        //            data.DisplayMemberPath = text;  
-        //            data.SelectedValuePath = id;
-
-        //        }
-        //    } catch(Exception ex) {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                if (DT.Rows.Count > 0)
+                {
+                    GroupsComboBox.ItemsSource = DT.DefaultView;
+                    GroupsComboBox.DisplayMemberPath = "group_name";
+                    GroupsComboBox.SelectedValuePath = "group_id";
+                    GroupsComboBox.SelectedIndex = 0;
+                }
+            }
+        }
 
         private void return_login_Click(object sender, RoutedEventArgs e)
         {

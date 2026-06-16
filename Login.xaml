@@ -56,7 +56,7 @@
 
                     <Button Content="Войти" 
                             Name="Check_Auth"
-                            Background="#0078D4"
+                            Background="#2C3E50"
                             Foreground="White"
                             FontWeight="Bold"
                             FontSize="15"
@@ -78,7 +78,7 @@
 
                     <TextBlock HorizontalAlignment="Center" Margin="0 15 0 0">
                         <Hyperlink TextDecorations="None" 
-                                   Foreground="#0078D4"
+                                   Foreground="#2C3E50"
                                    Click="CreateAccount_Click">
                             Нет аккаунта? Создайте
                         </Hyperlink>

@@ -55,7 +55,12 @@ namespace Курсовая_3_курс
                                         var mainWindow = (MainWindow)Application.Current.MainWindow;
                                         mainWindow.MainFrame.Navigate(new AdminPanel());
                                     }
-                                    else 
+                                    else if (userRole == "6")
+                                    {
+                                        var mainWindow = (MainWindow)Application.Current.MainWindow;
+                                        mainWindow.MainFrame.Navigate(new HomeTeacher());
+                                    }
+                                    else
                                     {
                                         var mainWindow = (MainWindow)Application.Current.MainWindow;
                                         mainWindow.MainFrame.Navigate(new Home());
