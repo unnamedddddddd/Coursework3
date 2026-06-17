@@ -307,10 +307,10 @@ namespace Курсовая_3_курс
                 dv.RowFilter = "";
             }
 
-            StudentComboBox.SelectedIndex = -1;
-            SubjectComboBox.SelectedIndex = -1;
+            StudentComboBox.SelectedIndex = 0;
+            SubjectComboBox.SelectedIndex = 0;
             StatusFilterComboBox.SelectedIndex = 0;
-            TeacherComboBox.SelectedIndex = -1;
+            TeacherComboBox.SelectedIndex = 0;
         }
     }
 }

@@ -34,12 +34,12 @@
                         <Border BorderBrush="Black" 
                             BorderThickness="1" 
                             CornerRadius="5" 
-                            Padding="2" 
                             Width="180">
                             <ComboBox x:Name="StudentComboBox" 
-                                  DisplayMemberPath="full_name" 
-                                  SelectedValuePath="user_id"
-                                  SelectionChanged="StudentComboBox_SelectionChanged"/>
+                                    Height="32"
+                                    DisplayMemberPath="full_name" 
+                                    SelectedValuePath="user_id"
+                                    SelectionChanged="StudentComboBox_SelectionChanged"/>
                         </Border>
                     </StackPanel>
 
@@ -51,7 +51,6 @@
                         <Border BorderBrush="Black" 
                                 BorderThickness="1" 
                                 CornerRadius="5" 
-                                Padding="2" 
                                 Width="180">
                             <ComboBox x:Name="SubjectComboBox" 
                               DisplayMemberPath="subject_name"
@@ -70,12 +69,12 @@
                         <Border BorderBrush="Black" 
                                 BorderThickness="1" 
                                 CornerRadius="5" 
-                                Padding="2" 
                                 Width="150">
                             <ComboBox x:Name="StatusFilterComboBox" 
                                       BorderThickness="0"
                                       FontSize="13"
-                                      Height="32" SelectionChanged="StatusFilterComboBox_SelectionChanged"
+                                      Height="32" 
+                                      SelectionChanged="StatusFilterComboBox_SelectionChanged"
                             >
                                 <ComboBoxItem Content="Все" IsSelected="True"/>
                                 <ComboBoxItem Content="Присутствовал"/>
@@ -94,9 +93,10 @@
                         <Border BorderBrush="Black" 
                             BorderThickness="1" 
                             CornerRadius="5" 
-                            Padding="2" 
-                            Width="180">
+                            Width="180"
+                        >
                             <ComboBox x:Name="TeacherComboBox" 
+                                    Height="32"
                                     DisplayMemberPath="full_name" 
                                     SelectedValuePath="user_id" 
                                     SelectionChanged="TeacherComboBox_SelectionChanged"/>
