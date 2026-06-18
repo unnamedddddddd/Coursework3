@@ -24,7 +24,7 @@ namespace Курсовая_3_курс
         private void Check_Auth_Click(object sender, RoutedEventArgs e)
         {
             string userLogin = login_textBox.Text.Trim();
-            string userPassword = password_textBox.Text.Trim();
+            string userPassword = password_textBox.Password.Trim();
 
             using (var connect = new SqlConnection(ConnString))
             {
@@ -83,6 +83,13 @@ namespace Курсовая_3_курс
                     MessageBox.Show($"Ошибка: {ex.Message}");
                 }
             }
+        }
+
+        private void helpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HelpLogin helpLogin = new HelpLogin();
+            helpLogin.Owner = Window.GetWindow(this);
+            helpLogin.ShowDialog();
         }
     }
 }

@@ -88,7 +88,7 @@
                         Padding="2"
                         CornerRadius="5"
                         Margin="0 0 0 15">
-                    <TextBox Padding="8" 
+                    <PasswordBox Padding="8" 
                              BorderThickness="0"
                              Name="password"
                              FontSize="14"
@@ -102,7 +102,7 @@
                         Padding="2"
                         CornerRadius="5"
                         Margin="0 0 0 20">
-                    <TextBox Padding="8" 
+                    <PasswordBox Padding="8" 
                              BorderThickness="0"
                              Name="repeat_password"
                              FontSize="14"

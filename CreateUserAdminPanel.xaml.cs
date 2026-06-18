@@ -122,8 +122,8 @@ namespace Курсовая_3_курс
 
                 int userRoleId = Convert.ToInt32(RolesComboBox.SelectedValue);
                 int userGroupId = Convert.ToInt32(GroupsComboBox.SelectedValue);
-                string userPassword = password.Text.Trim();
-                string repeatPassword = repeat_password.Text.Trim();
+                string userPassword = password.Password.Trim();
+                string repeatPassword = repeat_password.Password.Trim();
 
                 if (userPassword != repeatPassword)
                 {

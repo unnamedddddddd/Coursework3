@@ -89,5 +89,12 @@ namespace Курсовая_3_курс
         {
             ContentArea.Content = new UpdateRecord();
         }
+
+        private void HelpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HelpTeacher helpWindow = new HelpTeacher();
+            helpWindow.Owner = Window.GetWindow(this);
+            helpWindow.ShowDialog();
+        }
     }
 }

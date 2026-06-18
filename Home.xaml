@@ -41,6 +41,13 @@
 
                 <Separator Margin="10,20,10,10" Background="Gray"/>
 
+                <Button x:Name="HelpBtn" 
+                    Content="Помощь" 
+                    Click="HelpBtn_Click"
+                    FontSize="16"
+                    Padding="10,12"
+                    Margin="10,5"/>
+
                 <Button x:Name="LogoutBtn" 
                         Content="Выход" 
                         Click="LogoutBtn_Click"

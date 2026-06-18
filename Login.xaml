@@ -13,12 +13,25 @@
                 CornerRadius="5"
                 Width="350">
                 <StackPanel>
-                    <TextBlock 
-                        Text="Вход" 
-                        HorizontalAlignment="Center" 
-                        Margin="0 0 0 15"
-                        FontSize="22"
-                        FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Вход" 
+                           FontSize="22"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/> 
+
+                        <Button Name="helpBtn"
+                            Content="?"
+                            Width="30"
+                            Height="30"
+                            Background="#2C3E50"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Cursor="Hand"
+                            Margin="10,0,0,0"
+                            Click="helpBtn_Click"
+                            HorizontalAlignment="Right"/>   
+                    </StackPanel>
 
                     <StackPanel Margin="0 0 0 12">
                         <TextBlock Text="Логин" Margin="0 0 0 5" FontSize="14"/>
@@ -44,7 +57,7 @@
                             BorderThickness="1" 
                             CornerRadius="5"
                             Padding="1">
-                            <TextBox 
+                            <PasswordBox 
                                 Padding="8" 
                                 BorderThickness="0" 
                                 FontSize="14"

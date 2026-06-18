@@ -38,8 +38,8 @@ namespace Курсовая_3_курс
             {
                 string userLogin = login.Text.Trim();
                 string userFullName = fullName.Text.Trim();
-                string userPassword = password.Text.Trim();
-                string repeatPassword = repeat_password.Text.Trim();
+                string userPassword = password.Password.Trim();
+                string repeatPassword = repeat_password.Password.Trim();
                 int groupId = Convert.ToInt32(GroupsComboBox.SelectedValue);
 
                 if (userPassword != repeatPassword)
@@ -117,6 +117,13 @@ namespace Курсовая_3_курс
         private void return_login_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Login());
+        }
+
+        private void helpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HelpCreateMain helpWindow = new HelpCreateMain();
+            helpWindow.Owner = Window.GetWindow(this);
+            helpWindow.ShowDialog();
         }
     }
 }
