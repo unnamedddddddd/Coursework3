@@ -22,7 +22,7 @@ namespace Курсовая_3_курс
     /// </summary>
     public partial class ShowUsers : UserControl
     {
-        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True";
 
         public ShowUsers()
         {
@@ -44,8 +44,7 @@ namespace Курсовая_3_курс
                                 u.user_login,
                                 u.full_name,
                                 r.role_name,
-                                g.group_name,
-                                u.phone_number
+                                g.group_name
                               FROM Users u
                               LEFT JOIN Roles r ON u.role_id = r.role_id
                               LEFT JOIN Student_groups g ON u.group_id = g.group_id";

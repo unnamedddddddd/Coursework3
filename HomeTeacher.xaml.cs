@@ -22,7 +22,7 @@ namespace Курсовая_3_курс
     /// </summary>
     public partial class HomeTeacher : Page
     {
-        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Курсовая 3 курс\\Course DB.mdf\";Integrated Security=True";
+        public string ConnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\denis\\source\\repos\\Coursework3\\Course DB.mdf\";Integrated Security=True";
 
         public HomeTeacher()
         {
